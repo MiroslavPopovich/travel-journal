@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 export const Topbar = () => {
     return (
         <div className="container-fluid bg-light pt-3 d-none d-lg-block">
@@ -6,9 +6,9 @@ export const Topbar = () => {
                 <div className="row">
                     <div className="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                         <div className="d-inline-flex align-items-center">
-                            <a href="index.html" className="text-body mb-3"><i class="fas fa-sign-in-alt mr-2"></i>LogIn</a>
+                            <Link to="/login" className="text-body mb-3"><i class="fas fa-sign-in-alt mr-2"></i>LogIn</Link>
                             <p className="text-body px-3">|</p>
-                            <a href="index.html" className="text-body mb-3"> <i class="fas fa-id-card mr-2"></i>Register</a>
+                            <Link to="/register" className="text-body mb-3"> <i class="fas fa-id-card mr-2"></i>Register</Link>
                             <p className="text-body px-3">|</p>
                         </div>
                     </div>

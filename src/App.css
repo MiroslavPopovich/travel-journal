@@ -52,7 +52,27 @@ html {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #7AB730; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -9658,6 +9678,9 @@ h6,
   transition: .5s;
 }
 
+.team-item-text {
+  height: 6.5rem;
+}
 .team-social {
   position: absolute;
   width: 100%;
@@ -9711,6 +9734,9 @@ h6,
   transition: .3s .15s;
 }
 
+.team-img {
+  height: 8rem;
+}
 .team-item .team-img img {
   transition: .5s;
 }

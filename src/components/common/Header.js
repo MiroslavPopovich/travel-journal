@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export const Header = () => {
     return (
         <div className="container-fluid position-relative nav-bar p-0">
@@ -11,17 +12,17 @@ export const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                         <div className="navbar-nav ml-auto py-0">
-                            <a href="index.html" className="nav-item nav-link active">Home</a>
-                            <a href="about.html" className="nav-item nav-link">About</a>
-                            <a href="service.html" className="nav-item nav-link">Categories</a>
-                            <a href="package.html" className="nav-item nav-link">Catalogue</a>
+                            <Link to="/" className="nav-item nav-link active">Home</Link>
+                            <Link to="/about" className="nav-item nav-link">About</Link>
+                            <Link to="/categories" className="nav-item nav-link">Categories</Link>
+                            <Link to="/catalogue" className="nav-item nav-link">Catalogue</Link>
                             <div className="nav-item dropdown">
                                 <a href="/index.html" className="nav-link dropdown-toggle" data-toggle="dropdown">My Account</a>
                                 <div className="dropdown-menu border-0 m-0" style={{ display: "block" }}>
                                     <a href="blog.html" className="dropdown-item">Post an Article</a>
-                                    <a href="single.html" className="dropdown-item">My Articles</a>
-                                    <a href="blog.html" className="dropdown-item">Create Profile</a>
-                                    <a href="single.html" className="dropdown-item">Profile</a>
+                                    <Link to="/mycatalogue" className="dropdown-item">My Articles</Link>
+                                    <Link to="/profile/create" className="dropdown-item">Create Profile</Link>
+                                    <Link to="/profile/details" className="dropdown-item">My Profile</Link>
                                     <a href="single.html" className="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i>LogOut</a>
                                     <a href="destination.html" className="dropdown-item small text-danger">Change password</a>
                                 </div>

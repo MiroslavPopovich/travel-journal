@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export const Home = () => {
     return (
         <div className="container-fluid p-0">
@@ -9,7 +10,7 @@ export const Home = () => {
                             <div className="p-3" style={{ maxWidth: "900px" }}>
                                 <h4 className="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                                 <h1 className="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
-                                <a href="/index.html" className="btn btn-primary py-md-3 px-md-5 mt-2">Discover Now</a>
+                                <Link to="/catalogue" className="btn btn-primary py-md-3 px-md-5 mt-2">Discover Now</Link>
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Catalogue = () => {
     return (
         <div className="container-fluid py-5">
@@ -14,7 +16,7 @@ export const Catalogue = () => {
                                 <div className="d-flex justify-content-between mb-3">
                                     <small className="m-0"><i className="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
                                 </div>
-                                <a className="h5 text-decoration-none" href="/.index.html">Discover amazing places of the world with us</a>
+                                <Link className="h5 text-decoration-none" to="/catalogue/1">Discover amazing places of the world with us</Link>
                                 <div className="border-top mt-4 pt-4">
                                     <div className="d-flex justify-content-between">
                                         <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -30,7 +32,7 @@ export const Catalogue = () => {
                                 <div className="d-flex justify-content-between mb-3">
                                     <small className="m-0"><i className="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
                                 </div>
-                                <a className="h5 text-decoration-none" href="/.index.html">Discover amazing places of the world with us</a>
+                                <Link className="h5 text-decoration-none" to="/catalogue/2">Discover amazing places of the world with us</Link>
                                 <div className="border-top mt-4 pt-4">
                                     <div className="d-flex justify-content-between">
                                         <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -46,7 +48,7 @@ export const Catalogue = () => {
                                 <div className="d-flex justify-content-between mb-3">
                                     <small className="m-0"><i className="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
                                 </div>
-                                <a className="h5 text-decoration-none" href="/.index.html">Discover amazing places of the world with us</a>
+                                <Link className="h5 text-decoration-none" to="/catalogue/3">Discover amazing places of the world with us</Link>
                                 <div className="border-top mt-4 pt-4">
                                     <div className="d-flex justify-content-between">
                                         <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -62,7 +64,7 @@ export const Catalogue = () => {
                                 <div className="d-flex justify-content-between mb-3">
                                     <small className="m-0"><i className="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
                                 </div>
-                                <a className="h5 text-decoration-none" href="/.index.html">Discover amazing places of the world with us</a>
+                                <Link className="h5 text-decoration-none" to="/catalogue/4">Discover amazing places of the world with us</Link>
                                 <div className="border-top mt-4 pt-4">
                                     <div className="d-flex justify-content-between">
                                         <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -78,7 +80,7 @@ export const Catalogue = () => {
                                 <div className="d-flex justify-content-between mb-3">
                                     <small className="m-0"><i className="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
                                 </div>
-                                <a className="h5 text-decoration-none" href="/.index.html">Discover amazing places of the world with us</a>
+                                <Link className="h5 text-decoration-none" to="/catalogue/5">Discover amazing places of the world with us</Link>
                                 <div className="border-top mt-4 pt-4">
                                     <div className="d-flex justify-content-between">
                                         <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -94,7 +96,7 @@ export const Catalogue = () => {
                                 <div className="d-flex justify-content-between mb-3">
                                     <small className="m-0"><i className="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
                                 </div>
-                                <a className="h5 text-decoration-none" href="/.index.html">Discover amazing places of the world with us</a>
+                                <Link className="h5 text-decoration-none" to="/catalogue/6">Discover amazing places of the world with us</Link>
                                 <div className="border-top mt-4 pt-4">
                                     <div className="d-flex justify-content-between">
                                         <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
