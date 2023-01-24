@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import './App.css';
 import { Footer } from './components/common/Footer';
 import { Topbar } from './components/common/Topbar';
-import { Header} from './components/common/Header';
+import { Header} from './components/common/header/Header';
 import { Home } from './components/common/Home';
 import { About } from './components/common/About';
 import { Categories } from './components/categories/Categories';
@@ -11,8 +11,8 @@ import { Catalogue } from './components/catalogue/Catalogue';
 import { ArticleDetails } from './components/catalogue/article-details/ArticleDetails';
 import { Register } from './components/common/Register';
 import { Login } from './components/common/Login';
-import { ProfileCreate } from './components/common/Profile/ProfileCreate';
-import { ProfileDetails } from './components/common/Profile/ProfileDetails';
+import { ProfileCreate } from './components/common/profile/ProfileCreate';
+import { ProfileDetails } from './components/common/profile/ProfileDetails';
 import { MyCatalogue } from './components/catalogue/MyCatalogue';
 
 function App() {
