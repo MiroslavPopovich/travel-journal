@@ -1,4 +1,38 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+//import { useSessionSorage } from "../../hooks/useSessionStorage";
+import * as restService from "../../services/restService"
+
 export const Register = () => {
+    const navigate = useNavigate();
+    const { setAuth } = useContext(AuthContext);
+    //const [auth, setAuth] = useSessionSorage('auth', {});
+
+    const RegisterHandler = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const {
+          email,
+          password,
+          confirmPassword,
+        } = Object.fromEntries(formData);
+        
+        if (password === confirmPassword) {
+          restService.register(email, email, password)
+            .then((result) => {
+              console.log(result);
+                setAuth(result);
+                navigate('/');
+            }).catch((err) => {
+                alert(`Error ${err.error}`);
+                //navigate('/404');
+            });
+        } else {
+          alert(`Passwords don't match`);
+        }
+    };
+
     return (
         <div className="container-fluid bg-registration py-5" style={{ margin: "90px 0" }}>
             <div className="container py-5">
@@ -20,17 +54,16 @@ export const Register = () => {
                                 <h1 className="text-white m-0">Register Now</h1>
                             </div>
                             <div className="card-body rounded-bottom bg-white p-5">
-                                <form>
+                                <form onSubmit={RegisterHandler}>
                                     <div className="form-group">
-                                        <input type="text" className="form-control p-4" placeholder="Your email" required="required" />
+                                        <input type="email" id="email" name="email"  className="form-control p-4" placeholder="Your email" required="required" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" className="form-control p-4" placeholder="Password" required="required" />
+                                        <input type="password" id="password" name="password" className="form-control p-4" placeholder="Password" required="required" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" className="form-control p-4" placeholder="Confirm password" required="required" />
+                                        <input type="password" id="confirmPassword" name="confirmPassword" className="form-control p-4" placeholder="Confirm password" required="required" />
                                     </div>
-                                    
                                     <div>
                                         <button className="btn btn-primary btn-block py-3" type="submit">Register</button>
                                     </div>

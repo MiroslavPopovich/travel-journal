@@ -13,7 +13,7 @@ export const HeaderDropDown = () => {
                 <HeaderLink to="/mycatalogue" className="dropdown-item" text="My Articles" />
                 <HeaderLink to="/profile/create" className="dropdown-item" text="Create Profile" />
                 <HeaderLink to="/profile/details" className="dropdown-item" text="My Profile" />
-                <a href="single.html" className="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i>LogOut</a>
+                <HeaderLink to={null} className="dropdown-item" text="LogOut" isLogOut={true} icon={<i className="fas fa-sign-out-alt mr-2"></i>}/>
                 <a href="destination.html" className="dropdown-item small text-danger">Change password</a>
             </div>
         </div>

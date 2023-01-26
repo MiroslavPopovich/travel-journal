@@ -26,7 +26,7 @@ export const ArticleDetails = () => {
                                             </div>
                                         
                                         <div className="team-social">
-                                            <a className="btn btn-outline-primary btn-square" href="/.index.html"><i class="fa-regular fa-comments"></i></a>
+                                            <a className="btn btn-outline-primary btn-square" href="/.index.html"><i className="fa-regular fa-comments"></i></a>
                                         </div>
                                     </div>
 
@@ -42,7 +42,7 @@ export const ArticleDetails = () => {
                                             </div>
                                         
                                         <div className="team-social">
-                                            <a className="btn btn-outline-primary btn-square" href="/.index.html"><i class="fa-solid fa-camera-retro"></i></a>
+                                            <a className="btn btn-outline-primary btn-square" href="/.index.html"><i className="fa-solid fa-camera-retro"></i></a>
                                         </div>
                                     </div>
 

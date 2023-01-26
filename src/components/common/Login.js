@@ -1,4 +1,30 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import * as restService from "../../services/restService"
+
 export const Login = () => {
+
+    const navigate = useNavigate();
+    const { setAuth } = useContext(AuthContext);
+
+    const LogInHandler = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const {
+          email,
+          password,
+        } = Object.fromEntries(formData);
+        
+        restService.login(email, password)
+          .then((result) => {
+            console.log(result);
+            setAuth(result);
+            navigate('/');
+          }).catch((err) => {
+            alert(`Error ${err.error}`);
+          });
+      }
     return (
         <div className="container-fluid bg-registration py-5" style={{ margin: "90px 0" }}>
             <div className="container py-5">
@@ -15,12 +41,12 @@ export const Login = () => {
                                 <h1 className="text-white m-0">Login</h1>
                             </div>
                             <div className="card-body rounded-bottom bg-white p-5">
-                                <form>
+                                <form onSubmit={LogInHandler}> 
                                     <div className="form-group">
-                                        <input type="text" className="form-control p-4" placeholder="Your email" required="required" />
+                                        <input type="email" id="email" name="email"  className="form-control p-4" placeholder="Your email" required="required" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" className="form-control p-4" placeholder="Password" required="required" />
+                                        <input type="password" id="password" name="password" className="form-control p-4" placeholder="Password" required="required" />
                                     </div>
                                     <div>
                                         <button className="btn btn-primary btn-block py-3" type="submit">Login</button>
