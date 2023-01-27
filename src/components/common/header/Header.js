@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { HeaderLink } from "./HeaderLink";
 import { HeaderDropDown } from "./HeaderDropDown";
 import { HeaderContext } from "../../../contexts/HeaderContext";
+import { AuthContext } from "../../../contexts/AuthContext";
 export const Header = () => {
+
     const [linkState, setLinkState] = useState(false);
+    const { auth } = useContext(AuthContext);
     return (
         <HeaderContext.Provider value={
             {
@@ -25,7 +28,13 @@ export const Header = () => {
                                 <HeaderLink to="/about" className="nav-item nav-link" text="About" />
                                 <HeaderLink to="/categories" className="nav-item nav-link" text="Categories" />
                                 <HeaderLink to="/catalogue" className="nav-item nav-link" text="Catalogue" />
-                                <HeaderDropDown />
+                                {auth.username 
+                                    ? 
+                                    <HeaderDropDown />
+                                    :
+                                    <></>
+                                }
+                                
                             </div>
                         </div>
                     </nav>

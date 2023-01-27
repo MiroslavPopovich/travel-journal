@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import * as restService from "../../services/restService"
+import * as userService from "../../services/userService"
 
 export const Login = () => {
 
@@ -16,7 +16,7 @@ export const Login = () => {
           password,
         } = Object.fromEntries(formData);
         
-        restService.login(email, password)
+        userService.login(email, password)
           .then((result) => {
             console.log(result);
             setAuth(result);

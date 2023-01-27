@@ -3,12 +3,6 @@ const host = 'https://parseapi.back4app.com';
 const applicationId = 'LXtrURXbL6TBgBMFPBVNsYGnLqC2uw1R91d4QSdr';
 const restApiKey = 'JXvVV30GuYUrNeIHXAQ3EatUOq0KEniibAWhCXEC';
 
-const endPoints = {
-    register: '/users',
-    logIn: '/login',
-    logOut: '/logout',
-};
-
 async function request(url, options){// returns promise
     try{
         const response = await fetch(host + url, options);
@@ -49,33 +43,6 @@ function createOption(method = 'GET', data){ // if we don not choose any method 
     return options;
 };
 
-async function post(url, data) { // POST request and returns promise
+export async function post(url, data) { // POST request and returns promise
     return request(url, createOption('POST', data));
-};
-
-export async function register(username, email, password){
-    const result = await post(endPoints.register, {username, email, password});
-    const userData = {
-        username, 
-        id: result.objectId,
-        token: result.sessionToken 
-    };
-
-    return userData
-};
-
-export async function login(username, password){
-    const result = await post(endPoints.logIn, {username, password});
-
-    const userData = {
-        username: result.username,
-        id: result.objectId,
-        token: result.sessionToken 
-    };
-    
-    return userData;
-};
-
-export async function logout(){
-    await post(endPoints.logOut);
 };

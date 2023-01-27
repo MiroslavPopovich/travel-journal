@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import * as restService from "../../../services/restService"
+import * as userService from "../../../services/userService"
 import { HeaderContext} from "../../../contexts/HeaderContext";
 import { AuthContext } from "../../../contexts/AuthContext";
 
@@ -13,11 +13,11 @@ export const HeaderLink = (props) => {
 
     function clickHandler(e){
         setLinkState(false);
-        
+        //Logout handler
         if(props.isLogOut){
             e.preventDefault();
             console.log('logging out');
-            restService.logout()
+            userService.logout()
             .then((result) => {
                 setAuth({});
                 console.log(result);

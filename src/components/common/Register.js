@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-//import { useSessionSorage } from "../../hooks/useSessionStorage";
-import * as restService from "../../services/restService"
+import * as userService from "../../services/userService"
 
 export const Register = () => {
     const navigate = useNavigate();
     const { setAuth } = useContext(AuthContext);
-    //const [auth, setAuth] = useSessionSorage('auth', {});
 
     const RegisterHandler = (e) => {
         e.preventDefault();
@@ -19,7 +17,7 @@ export const Register = () => {
         } = Object.fromEntries(formData);
         
         if (password === confirmPassword) {
-          restService.register(email, email, password)
+          userService.register(email, email, password)
             .then((result) => {
               console.log(result);
                 setAuth(result);
