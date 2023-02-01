@@ -43,6 +43,35 @@ function createOption(method = 'GET', data){ // if we don not choose any method 
     return options;
 };
 
+export function createPointerQuery(propName, className, objectId){
+    return createQuery({[propName]: createPointer(className, objectId)})
+}
+
+function createQuery(query){
+    return encodeURIComponent(JSON.stringify(query));
+}
+
+function createPointer(className, objectId) {
+    return {
+        __type: 'Pointer',
+        className,
+        objectId
+    };
+}
+
+export function addOwner(record, id) {
+    record.owner = createPointer('_User', id)
+    return record;
+}
+
 export async function post(url, data) { // POST request and returns promise
     return request(url, createOption('POST', data));
+};
+
+export async function get(url, data) { // GET request and returns promise
+    return request(url, createOption('GET', data));
+};
+
+export async function put(url, data) { // PUT request and returns promise
+    return request(url, createOption('PUT', data));
 };

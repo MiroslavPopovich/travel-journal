@@ -16,12 +16,11 @@ export const HeaderLink = (props) => {
         //Logout handler
         if(props.isLogOut){
             e.preventDefault();
-            console.log('logging out');
+            //console.log('logging out');
             userService.logout()
             .then((result) => {
                 setAuth({});
-                console.log(result);
-                console.log('logged out');
+                //console.log('logged out');
                 navigate('/')
             })
             .catch((err) => {

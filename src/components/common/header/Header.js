@@ -3,15 +3,17 @@ import { HeaderLink } from "./HeaderLink";
 import { HeaderDropDown } from "./HeaderDropDown";
 import { HeaderContext } from "../../../contexts/HeaderContext";
 import { AuthContext } from "../../../contexts/AuthContext";
+
 export const Header = () => {
 
     const [linkState, setLinkState] = useState(false);
     const { auth } = useContext(AuthContext);
+
     return (
         <HeaderContext.Provider value={
             {
                 linkState,
-                setLinkState
+                setLinkState,
             }}>
             <div className="container-fluid position-relative nav-bar p-0">
                 <div className="container-lg position-relative p-0 px-lg-3" style={{ zIndex: "9" }}>
@@ -28,7 +30,7 @@ export const Header = () => {
                                 <HeaderLink to="/about" className="nav-item nav-link" text="About" />
                                 <HeaderLink to="/categories" className="nav-item nav-link" text="Categories" />
                                 <HeaderLink to="/catalogue" className="nav-item nav-link" text="Catalogue" />
-                                {auth.username 
+                                {auth.id 
                                     ? 
                                     <HeaderDropDown />
                                     :

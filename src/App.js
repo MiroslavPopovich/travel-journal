@@ -12,17 +12,22 @@ import { ArticleDetails } from './components/catalogue/article-details/ArticleDe
 import { Register } from './components/common/Register';
 import { Login } from './components/common/Login';
 import { ProfileCreate } from './components/common/profile/ProfileCreate';
+import { ProfileEdit } from './components/common/profile/ProfileEdit';
 import { ProfileDetails } from './components/common/profile/ProfileDetails';
 import { MyCatalogue } from './components/catalogue/MyCatalogue';
 
+
 import { AuthProvider } from './contexts/AuthContext';
+import { ProfileProvider } from './contexts/ProfileContext';
 
 function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Topbar />
-        <Header />
+        <ProfileProvider>
+          <Topbar />
+          <Header />
+        </ProfileProvider>
         <main className="main">
           <Routes>
             <Route path='/' element={
@@ -50,16 +55,25 @@ function App() {
                 <ArticleDetails />
               </section>
             } />
-            <Route path='/profile/details' element={
-              <section id='profileDetails'>
-                <ProfileDetails />
-              </section>
-            } />
             <Route path='/profile/create' element={
               <section id='profileCreate'>
                 <ProfileCreate />
               </section>
             } />
+            <Route path='/profile/details/:profileId' element={
+              <section id='profileDetails'>
+                <ProfileProvider>
+                  <ProfileDetails/>
+                </ProfileProvider>
+              </section>
+            }/>
+            <Route path='/profile/edit/:userId' element={
+              <section id='profileEdit'>
+                <ProfileProvider>
+                  <ProfileEdit/>
+                </ProfileProvider>
+              </section>
+            }/>
             <Route path='/login' element={
               <section id='login'>
                 <Login />
