@@ -1,11 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ProfileContext } from "../../../contexts/ProfileContext";
+import { ConfirmationPopUp } from "../ConfirmationPopUp";
 
 export const ProfileDetails = () => {
     const { profile } = useContext(ProfileContext);
+    const [show, setShow] = useState(false);
+    function clickHandler(){
+        setShow(true);
+    };
+    
     
     return (
+        <>
         <div className="container-fluid bg-registration py-5 row align-items-center justify-content-around" style={{ margin: "90px 0" }}>
             <div className="container py-5 bg-white row col-lg-8 align-items-center justify-content-evenly">
                 <div className="team-item bg-white col-lg-3 p-0 row align-items-center justify-content-around">
@@ -23,9 +30,11 @@ export const ProfileDetails = () => {
                     <p className="m-2">{profile.country}</p>
                     <p className="m-2">{profile?.DoB?.iso}</p>
                     <Link to={`/profile/edit/${profile.objectId}`} className="btn btn-info mt-1 mr-2">Edit Now</Link>
-                    <a href="/index.html" className="btn btn-danger mt-1 mr-2">Delete</a>
+                    <button className="btn btn-danger mt-1 mr-2" onClick={clickHandler} >Delete</button>
                 </div>
             </div>
         </div>
+        <ConfirmationPopUp show={show} setShow={setShow}/>
+        </>
     );
 }

@@ -16,7 +16,6 @@ import { ProfileEdit } from './components/common/profile/ProfileEdit';
 import { ProfileDetails } from './components/common/profile/ProfileDetails';
 import { MyCatalogue } from './components/catalogue/MyCatalogue';
 
-
 import { AuthProvider } from './contexts/AuthContext';
 import { ProfileProvider } from './contexts/ProfileContext';
 
@@ -90,12 +89,11 @@ function App() {
               </section>
             } />
           </Routes>
-
         </main>
-
         <Footer />
       </div>
     </AuthProvider>
+    
   );
 }
 

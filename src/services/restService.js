@@ -75,3 +75,7 @@ export async function get(url, data) { // GET request and returns promise
 export async function put(url, data) { // PUT request and returns promise
     return request(url, createOption('PUT', data));
 };
+
+export async function del(url) { // DELETE request and returns promise
+    return request(url, createOption('DELETE')); 
+};
