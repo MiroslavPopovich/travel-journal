@@ -8,7 +8,7 @@ export const ConfirmationPopUp = (props) => {
     const params = useParams();
     const navigate = useNavigate();
     const { auth, setAuth } = useContext(AuthContext);
-    function clickHandler() {
+    function closeHandler() {
         props.setShow(false);
     };
 
@@ -36,7 +36,7 @@ export const ConfirmationPopUp = (props) => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">Delete your profile</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={clickHandler}>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={closeHandler}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -45,7 +45,7 @@ export const ConfirmationPopUp = (props) => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-danger" onClick={ProfileDeleteHandler}>Delete Profile</button>
-                            <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={clickHandler}>Don't</button>
+                            <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={closeHandler}>Don't</button>
                         </div>
                     </div>
                 </div>

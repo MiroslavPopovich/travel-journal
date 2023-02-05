@@ -6,7 +6,7 @@ import { ConfirmationPopUp } from "../ConfirmationPopUp";
 export const ProfileDetails = () => {
     const { profile } = useContext(ProfileContext);
     const [show, setShow] = useState(false);
-    function clickHandler(){
+    function showHandler(){
         setShow(true);
     };
     
@@ -23,14 +23,14 @@ export const ProfileDetails = () => {
                         <h5 className="text-truncate">{profile.userName}</h5>
                     </div>
                 </div>
-                <div className="text-left py-4">
+                <div className="text-left py-4 col-lg-4">
                     <p className="m-2">{profile.firstName}</p>
                     <p className="m-2">{profile.lastName}</p>
                     <p className="m-2">{profile.gender}</p>
                     <p className="m-2">{profile.country}</p>
                     <p className="m-2">{profile?.DoB?.iso}</p>
                     <Link to={`/profile/edit/${profile.objectId}`} className="btn btn-info mt-1 mr-2">Edit Now</Link>
-                    <button className="btn btn-danger mt-1 mr-2" onClick={clickHandler} >Delete</button>
+                    <button className="btn btn-danger mt-1 mr-2" onClick={showHandler} >Delete</button>
                 </div>
             </div>
         </div>

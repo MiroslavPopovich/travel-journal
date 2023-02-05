@@ -21,9 +21,6 @@ export const Header = () => {
                         <a href="/index.html" className="navbar-brand">
                             <h1 className="m-0 text-primary"><span className="text-dark">Travel</span>journal</h1>
                         </a>
-                        <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
                         <div className="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                             <div className="navbar-nav ml-auto py-0">
                                 <HeaderLink to="/" className="nav-item nav-link" text="Home" />
@@ -36,7 +33,6 @@ export const Header = () => {
                                     :
                                     <></>
                                 }
-                                
                             </div>
                         </div>
                     </nav>

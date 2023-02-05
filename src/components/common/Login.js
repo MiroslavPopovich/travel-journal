@@ -18,7 +18,7 @@ export const Login = () => {
         
         userService.login(email, password)
           .then((result) => {
-            //console.log(result);
+            console.log(result);
             setAuth(result);
             navigate('/');
           }).catch((err) => {

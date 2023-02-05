@@ -9,8 +9,8 @@ export const HeaderDropDownLink = (props) => {
         e.preventDefault();
         setLinkState(!linkState);
     }
-    let toggleClass = linkState ? 'active' : '';
+    let toggleClass = linkState ? ' dropup-toggle active' : ' dropdown-toggle';
     return (
-        <Link to={props.to} className={`${props.className} ${toggleClass}`} onClick={clickHandler}>{props.text}</Link>
+        <Link to={props.to} className={`${props.className} ${toggleClass}`} onClick={clickHandler}>{props.text} </Link>
     );
 }
