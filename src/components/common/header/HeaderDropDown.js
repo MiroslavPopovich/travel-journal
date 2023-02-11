@@ -20,7 +20,7 @@ export const HeaderDropDown = () => {
             <div className={"nav-item dropdown"}>
                 <HeaderDropDownLink to={null} className="nav-link" data-toggle="dropdown" text="My Account" />
                 <div className={`dropdown-menu border-0 m-0 ${linkState ? 'show' : ''}`}>
-                    <a href="blog.html" className="dropdown-item">Post an Article</a>
+                    <HeaderLink to="/article/create" className="dropdown-item" text="Post an Article" />
                     <HeaderLink to="/mycatalogue" className="dropdown-item" text="My Articles" />
                     {auth.hasProfile
                         ?

@@ -21,7 +21,7 @@ export const ProfileCreate = () => {
           imageUrl,          
         } = Object.fromEntries(formData);
     
-        const contactData = {
+        const profileData = {
           firstName,
           lastName,
           userName,
@@ -32,7 +32,7 @@ export const ProfileCreate = () => {
         };
         
     
-        profileService.addProfile(contactData, auth.id)
+        profileService.addProfile(profileData, auth.id)
           .then(() => {
             userService.editUser({hasProfile : true}, auth.id)
                 .then(() => {

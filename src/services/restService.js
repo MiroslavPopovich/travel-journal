@@ -30,7 +30,7 @@ function createOption(method = 'GET', data){ // if we don not choose any method 
 
     const userData = getUserData();
     
-    if(userData) {
+    if(!(Object.keys(userData).length === 0 && userData.constructor === Object)) {
         options.headers['X-Parse-Session-Token'] = userData.token; 
     }
 
@@ -61,6 +61,11 @@ function createPointer(className, objectId) {
 
 export function addOwner(record, id) {
     record.owner = createPointer('_User', id)
+    return record;
+}
+
+export function addCategory(record, id) {
+    record.category = createPointer('Categories', id)
     return record;
 }
 

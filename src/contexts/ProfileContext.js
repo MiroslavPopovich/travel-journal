@@ -15,9 +15,7 @@ export const ProfileProvider = ({
           .then((result) => {
             setProfile(result.results[0]);
           });
-          //console.log("inProfileRequestIF")
         }else{
-            //console.log("inProfileRequestELSE")
             setProfile({});
         }
     }, [auth]);

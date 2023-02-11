@@ -18,13 +18,10 @@ export const ArticleDetails = () => {
                         <div className="row" style={{ justifyContent: "flex-start" }}>
                             <div className="col-lg-2 col-md-4 col-sm-6">
                                 <div className="team-item bg-white shadow-btn">
-                                    <div className="team-img position-relative overflow-hidden">
-                                        
-                                        
+                                    <div className="position-relative overflow-hidden">
                                             <div className="text-center py-3">
                                                 <h5 className="text-truncate mb-0">Comments</h5>
                                             </div>
-                                        
                                         <div className="team-social">
                                             <a className="btn btn-outline-primary btn-square" href="/.index.html"><i className="fa-regular fa-comments"></i></a>
                                         </div>
@@ -34,7 +31,7 @@ export const ArticleDetails = () => {
                             </div>
                             <div className="col-lg-2 col-md-4 col-sm-6">
                                 <div className="team-item bg-white shadow-btn">
-                                    <div className="team-img position-relative overflow-hidden">
+                                    <div className="position-relative overflow-hidden">
                                         
                                         
                                             <div className="text-center py-3">

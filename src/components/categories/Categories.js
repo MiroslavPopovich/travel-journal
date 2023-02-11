@@ -1,4 +1,16 @@
+import { useEffect, useState } from "react";
+import { CategoryItem } from "./category-item/CategoryItem";
+import * as categoriesService from "../../services/categoriesService";
 export const Categories = () => {
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        categoriesService.getCategories()
+            .then((result) => {
+                setCategories(result.results);
+                setLoading(false);
+            });
+    }, []);
     return (
         <div className="container-fluid py-5">
             <div className="container pt-5 pb-3">
@@ -7,60 +19,17 @@ export const Categories = () => {
                     <h1>Explore Top Destination</h1>
                 </div>
                 <div className="row">
-                    <div className="col-lg-4 col-md-6 mb-4">
-                        <div className="destination-item position-relative overflow-hidden mb-2">
-                            <img className="img-fluid" src="../img/destination-2.jpg" alt="" />
-                            <a className="destination-overlay text-white text-decoration-none" href="/.index.html">
-                                <h5 className="text-white">United States</h5>
-                                <span>100 Cities</span>
-                            </a>
+                    {loading
+                        ?
+                        <div className="d-flex justify-content-center">
+                            <div className="spinner-border" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 mb-4">
-                        <div className="destination-item position-relative overflow-hidden mb-2">
-                            <img className="img-fluid" src="img/destination-2.jpg" alt="" />
-                            <a className="destination-overlay text-white text-decoration-none" href="/.index.html">
-                                <h5 className="text-white">United Kingdom</h5>
-                                <span>100 Cities</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 mb-4">
-                        <div className="destination-item position-relative overflow-hidden mb-2">
-                            <img className="img-fluid" src="img/destination-2.jpg" alt="" />
-                            <a className="destination-overlay text-white text-decoration-none" href="/.index.html">
-                                <h5 className="text-white">Australia</h5>
-                                <span>100 Cities</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 mb-4">
-                        <div className="destination-item position-relative overflow-hidden mb-2">
-                            <img className="img-fluid" src="img/destination-2.jpg" alt="" />
-                            <a className="destination-overlay text-white text-decoration-none" href="/.index.html">
-                                <h5 className="text-white">India</h5>
-                                <span>100 Cities</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 mb-4">
-                        <div className="destination-item position-relative overflow-hidden mb-2">
-                            <img className="img-fluid" src="img/destination-2.jpg" alt="" />
-                            <a className="destination-overlay text-white text-decoration-none" href="/.index.html">
-                                <h5 className="text-white">South Africa</h5>
-                                <span>100 Cities</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 mb-4">
-                        <div className="destination-item position-relative overflow-hidden mb-2">
-                            <img className="img-fluid" src="img/destination-2.jpg" alt="" />
-                            <a className="destination-overlay text-white text-decoration-none" href="/.index.html">
-                                <h5 className="text-white">Indonesia</h5>
-                                <span>100 Cities</span>
-                            </a>
-                        </div>
-                    </div>
+                        :
+                        categories.map(category => <CategoryItem key={category.objectId} category={category.category} id={category.objectId}/>)
+                    }
+
                 </div>
             </div>
         </div>
