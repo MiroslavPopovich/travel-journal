@@ -26,7 +26,7 @@ export const Header = () => {
                                 <HeaderLink to="/" className="nav-item nav-link" text="Home" />
                                 <HeaderLink to="/about" className="nav-item nav-link" text="About" />
                                 <HeaderLink to="/categories" className="nav-item nav-link" text="Categories" />
-                                <HeaderLink to="/catalogue" className="nav-item nav-link" text="Catalogue" />
+                                <HeaderLink to="/catalogue/all/null" className="nav-item nav-link" text="Catalogue" />
                                 {auth.id 
                                     ? 
                                     <HeaderDropDown />

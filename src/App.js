@@ -44,12 +44,12 @@ function App() {
                 <Categories />
               </section>
             } />
-            <Route path='/catalogue' element={
+            <Route path='/catalogue/:catalogueTitle/:catalogueId' element={
               <section id='catalogue'>
                 <Catalogue />
               </section>
             } />
-            <Route path='/catalogue/:articleId' element={
+            <Route path='/catalogue/:catalogueTitle/:catalogueId/:articleId' element={
               <section id='articleDetails'>
                 <ArticleDetails />
               </section>
