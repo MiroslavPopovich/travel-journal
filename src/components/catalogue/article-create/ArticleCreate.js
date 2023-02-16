@@ -22,12 +22,18 @@ export const ArticleCreate = () => {
         const {
             title,
             categoryId,
+            country,
+            city,
             text,
+            imageUrl,
         } = Object.fromEntries(formData);
 
         const articleData = {
             title,
+            country,
+            city,
             text,
+            imageUrl,
         };
         articleService.addArticle(articleData, auth.id, categoryId)
             .then(() => {
@@ -58,18 +64,26 @@ export const ArticleCreate = () => {
                                             <input type="text" id="title" name="title" className="form-control p-4" placeholder="Article Title" required="required" />
                                         </div>
                                         <div className="form-group col-lg-6">
-                                            <select className="form-control form-select h-100" id="category" name="categoryId" required>
-                                                <option value="" disabled selected>
+                                            <select className="form-control form-select h-100" id="category" name="categoryId" required defaultValue={""} >
+                                                <option value="" disabled>
                                                     {loading
                                                         ? "Loading..."
                                                         : "Categories"}
-
                                                 </option>
                                                 {categories.map(category => <option key={category.objectId} value={category.objectId}>{category.category}</option>)}
                                             </select>
                                         </div>
+                                        <div className="form-group col-lg-6">
+                                            <input type="text" id="country" name="country" className="form-control p-4" placeholder="Country" required="required" />
+                                        </div>
+                                        <div className="form-group col-lg-6">
+                                            <input type="text" id="city" name="city" className="form-control p-4" placeholder="City/Town" required="required" />
+                                        </div>
                                         <div className="form-group col-lg-12">
                                             <textarea id="text" name="text" rows="6" className="form-control p-4" placeholder="Article Text" required="required" />
+                                        </div>
+                                        <div className="form-group col-lg-12">
+                                            <input type="text" id="imageUrl" name="imageUrl" className="form-control p-4" placeholder="imageUrl" required="required" />
                                         </div>
                                     </div>
                                     <div className="col-lg-6">

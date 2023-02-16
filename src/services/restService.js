@@ -30,7 +30,7 @@ function createOption(method = 'GET', data){ // if we don not choose any method 
 
     const userData = getUserData();
     
-    if(userData!==null && !(Object.keys(userData).length === 0 && userData.constructor === Object)) {
+    if(userData !== null && !(Object.keys(userData).length === 0 && userData.constructor === Object)) {
         options.headers['X-Parse-Session-Token'] = userData.token; 
     }
 

@@ -3,7 +3,8 @@ import {  addOwner, addCategory, post, createPointerQuery, get} from "../service
 
 const endPoints = {
     addArticle: '/classes/Articles',
-    getArticlesByCategoryId: (categoryId) => `/classes/Articles?where=${createPointerQuery('category', 'Categories', categoryId)}&count=1`,
+    allArticlesByCategoryId: (categoryId) => `/classes/Articles?where=${createPointerQuery('category', 'Categories', categoryId)}&count=1`,
+    allArticles: '/classes/Articles',
 };
 
 export async function addArticle(articleData, ownerId, categoryId){// profileData item must be object
@@ -13,5 +14,9 @@ export async function addArticle(articleData, ownerId, categoryId){// profileDat
 };
 
 export async function getArticlesByCategory(categoryId) {
-    return get(endPoints.getArticlesByCategoryId(categoryId));// returns promise
+    return get(endPoints.allArticlesByCategoryId(categoryId));// returns promise
 };
+
+export async function getAllArticles(){
+    return get(endPoints.allArticles);
+}
