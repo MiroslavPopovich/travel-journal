@@ -10,7 +10,7 @@ export const ArticleCreate = () => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        categoriesService.getCategories()
+        categoriesService.getAllCategories()
             .then((result) => {
                 setCategories(result.results);
                 setLoading(false);

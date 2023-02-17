@@ -8,11 +8,11 @@ const endPoints = {
 };
 
 export async function getProfile(ownerId) {
-    return get(endPoints.getProfileByOwnerId(ownerId));// returns promise
+    return get(endPoints.getProfileByOwnerId(ownerId))// returns promise
 };
 
 export async function addProfile(profileData, ownerId){// profileData item must be object
-    addOwner(profileData, ownerId)
+    addOwner(profileData, ownerId);
     return post(endPoints.addProfile, profileData)// returns promise
 };
 

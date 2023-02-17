@@ -32,6 +32,6 @@ export const CategoryItem = (props) => {
                 </Link>
             </div>
         </div>
-    )
+    );
 
 };
