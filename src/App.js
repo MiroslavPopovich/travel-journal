@@ -64,14 +64,14 @@ function App() {
                 <ProfileCreate />
               </section>
             } />
-            <Route path='/profile/details/:profileId' element={
+            <Route path='/profile/:profileId/details' element={
               <section id='profileDetails'>
                 <ProfileProvider>
                   <ProfileDetails/>
                 </ProfileProvider>
               </section>
             }/>
-            <Route path='/profile/edit/:userId' element={
+            <Route path='/profile/:profileId/edit' element={
               <section id='profileEdit'>
                 <ProfileProvider>
                   <ProfileEdit/>

@@ -1,14 +1,11 @@
 import { useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { GoBackBtn } from "../../common/GoBackBtn";
 export const ArticleDetails = () => {
     const { auth } = useContext(AuthContext);
     const location = useLocation();
     const article = location.state.article;
-    const navigate = useNavigate();
-    function goBackHandler () {
-        navigate(-1);
-    }
     return (
         <div className="container-fluid py-5 " style={{ justifyContent: "center" }}>
             <div className="container pt-5" >
@@ -45,7 +42,7 @@ export const ArticleDetails = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="btn btn-primary mt-1 mr-2" style={{ float: "right" }} onClick={goBackHandler}>Go Back</button>
+                        <GoBackBtn className='btn btn-primary mt-1 mr-2' style={{ float: "right" }}/>
                         {
                             (auth.id === article.owner.objectId)
                                 ?
@@ -55,7 +52,6 @@ export const ArticleDetails = () => {
                                 </>
                                 : null
                         }
-
                     </div>
                 </div>
             </div>

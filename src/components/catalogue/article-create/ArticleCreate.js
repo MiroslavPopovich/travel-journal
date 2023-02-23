@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { GoHomeBtn } from "../../common/GoHomeBtn";
 import { AuthContext } from "../../../contexts/AuthContext";
 import * as categoriesService from "../../../services/categoriesService";
 import * as articleService from "../../../services/articleService";
@@ -87,7 +88,8 @@ export const ArticleCreate = () => {
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
-                                        <button className=" btn btn-primary btn-block py-3" type="submit">Post Article</button>
+                                        <button className="btn btn-primary btn-block py-2" type="submit">Post Article</button>
+                                        <GoHomeBtn className="btn btn-block py-2 btn-secondary"/>
                                     </div>
                                 </form>
                             </div>

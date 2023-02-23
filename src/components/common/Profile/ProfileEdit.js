@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GoBackBtn } from "../GoBackBtn";
 import * as profileService from "../../../services/profileService";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { ProfileContext } from "../../../contexts/ProfileContext";
@@ -113,7 +114,8 @@ export const ProfileEdit = () => {
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
-                                        <button className=" btn btn-primary btn-block py-3" type="submit">Edit</button>
+                                        <button className="btn btn-primary btn-block py-2" type="submit">Edit</button>
+                                        <GoBackBtn className="btn btn-block py-2 btn-secondary"/>
                                     </div>
                                 </form>
                             </div>

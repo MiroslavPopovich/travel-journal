@@ -24,7 +24,7 @@ export const HeaderDropDown = () => {
                     <HeaderLink to="/mycatalogue" className="dropdown-item" text="My Articles" />
                     {auth.hasProfile
                         ?
-                        <HeaderLink to={`/profile/details/${profile.objectId}`} className="dropdown-item" text="My Profile" />
+                        <HeaderLink to={`/profile/${profile.objectId}/details`} className="dropdown-item" text="My Profile" />
                         :
                         <HeaderLink to="/profile/create" className="dropdown-item" text="Create Profile" />
                     }

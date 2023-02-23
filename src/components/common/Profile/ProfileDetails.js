@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ProfileContext } from "../../../contexts/ProfileContext";
 import { ConfirmationPopUp } from "../ConfirmationPopUp";
-
+import { GoHomeBtn } from "../GoHomeBtn";
 export const ProfileDetails = () => {
     const { profile } = useContext(ProfileContext);
     const [show, setShow] = useState(false);
@@ -29,8 +29,9 @@ export const ProfileDetails = () => {
                     <p className="m-2">{profile.gender}</p>
                     <p className="m-2">{profile.country}</p>
                     <p className="m-2">{profile?.DoB?.iso}</p>
-                    <Link to={`/profile/edit/${profile.objectId}`} className="btn btn-info mt-1 mr-2">Edit Now</Link>
+                    <Link to={`/profile/${profile.objectId}/edit`} className="btn btn-info mt-1 mr-2">Edit Now</Link>
                     <button className="btn btn-danger mt-1 mr-2" onClick={showHandler} >Delete</button>
+                    <GoHomeBtn className="btn btn-primary mt-1 mr-2"/>
                 </div>
             </div>
         </div>
