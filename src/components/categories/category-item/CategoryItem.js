@@ -2,22 +2,23 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as articleService from "../../../services/articleService"
 export const CategoryItem = (props) => {
+
     const [loading, setLoading] = useState(true);
-    const [articles, setArticles] = useState([]);
     const [totalArticles, setTotalArticles] = useState(null);
+    
     useEffect(() => {
         articleService.getArticlesByCategory(props.id)
             .then((result) => {
-                setArticles(result.results);
                 setTotalArticles(result.count);
                 setLoading(false);
             });
     }, [props.id]);
+
     return (
         <div className="col-lg-4 col-md-6 mb-4">
             <div className="destination-item position-relative overflow-hidden mb-2">
                 <img className="img-fluid" src="../img/destination-2.jpg" alt="" />
-                <Link className="destination-overlay text-white text-decoration-none" to={`/catalogue/${props.category.replace(/\s+/g, '')}/${props.id}`} state={{ articles }}>
+                <Link className="destination-overlay text-white text-decoration-none" to={`/catalogue/${props.category.replace(/\s+/g, '')}/${props.id}`}>
                     <h5 className="text-white">{props.category}</h5>
                     {loading
                         ?
@@ -33,5 +34,4 @@ export const CategoryItem = (props) => {
             </div>
         </div>
     );
-
 };

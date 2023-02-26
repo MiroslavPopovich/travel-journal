@@ -1,11 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { GoBackBtn } from "../../common/GoBackBtn";
+import { ConfirmationPopUp } from "../../common/ConfirmationPopUp";
 export const ArticleDetails = () => {
     const { auth } = useContext(AuthContext);
     const location = useLocation();
     const article = location.state.article;
+    const [show, setShow] = useState(false);
+    function showHandler(){
+        setShow(true);
+    };
     return (
         <div className="container-fluid py-5 " style={{ justifyContent: "center" }}>
             <div className="container pt-5" >
@@ -48,11 +53,12 @@ export const ArticleDetails = () => {
                                 ?
                                 <>
                                     <a href="/index.html" className="btn btn-info mt-1 mr-2" style={{ float: "right" }}>Edit</a>
-                                    <a href="/index.html" className="btn btn-danger mt-1 mr-2" style={{ float: "right" }}>Delete</a>
+                                    <button className="btn btn-danger mt-1 mr-2" onClick={showHandler} style={{ float: "right" }}>Delete</button>
                                 </>
                                 : null
                         }
                     </div>
+                    <ConfirmationPopUp show={show} setShow={setShow} type={'article'} article={article} goBack={true}/>
                 </div>
             </div>
         </div>

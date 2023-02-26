@@ -1,19 +1,26 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { ReloadContext } from "../../contexts/ReloadContext";
 import { MyArticleItem } from "./my-article-item/MyArticleItem";
-import * as articleService from "../../services/articleService"
+import { ConfirmationPopUp } from "../common/ConfirmationPopUp";
+import * as articleService from "../../services/articleService";
 export const MyCatalogue = () => {
+
     const { auth } = useContext(AuthContext);
+    const {reload, setReload } = useContext(ReloadContext);
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const [show, setShow] = useState(false);
+    const [currentArticle, setCurrentArticle] = useState(null);
+    
     useEffect(() => {
         articleService.getArticlesByOwner(auth.id)
         .then((result) => {
             setArticles(result.results);
             setLoading(false);
         });
-    }, [auth.id]);
+    }, [auth.id, reload]);
 
     return (
         <div className="container-fluid py-5">
@@ -31,8 +38,9 @@ export const MyCatalogue = () => {
                             </div>
                         </div>
                         :
-                        articles.map( article => <MyArticleItem key={article.objectId} article={article}/>)
-                    }
+                        articles.map( article => <MyArticleItem key={article.objectId} article={article} setCurrentArticle={setCurrentArticle} setShow={setShow}/>)
+                }
+                <ConfirmationPopUp show={show} setShow={setShow} type={'article'} article={currentArticle} goBack={false} action={{reload, setReload}}/>
                 </div>
             </div>
         </div>

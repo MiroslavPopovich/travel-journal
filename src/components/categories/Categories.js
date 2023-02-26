@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { CategoryItem } from "./category-item/CategoryItem";
 import * as categoriesService from "../../services/categoriesService";
 export const Categories = () => {
+    
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         categoriesService.getAllCategories()
             .then((result) => {
@@ -11,6 +13,7 @@ export const Categories = () => {
                 setLoading(false);
             });
     }, []);
+
     return (
         <div className="container-fluid py-5">
             <div className="container pt-5 pb-3">
@@ -29,7 +32,6 @@ export const Categories = () => {
                         :
                         categories.map(category => <CategoryItem key={category.objectId} category={category.category} id={category.objectId}/>)
                     }
-
                 </div>
             </div>
         </div>

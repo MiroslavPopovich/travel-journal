@@ -4,12 +4,12 @@ import { ProfileContext } from "../../../contexts/ProfileContext";
 import { ConfirmationPopUp } from "../ConfirmationPopUp";
 import { GoHomeBtn } from "../GoHomeBtn";
 export const ProfileDetails = () => {
+
     const { profile } = useContext(ProfileContext);
     const [show, setShow] = useState(false);
     function showHandler(){
         setShow(true);
     };
-    
     
     return (
         <>
@@ -35,7 +35,7 @@ export const ProfileDetails = () => {
                 </div>
             </div>
         </div>
-        <ConfirmationPopUp show={show} setShow={setShow}/>
+        <ConfirmationPopUp show={show} setShow={setShow} type={'profile'}/>
         </>
     );
 }

@@ -18,6 +18,7 @@ import { MyCatalogue } from './components/catalogue/MyCatalogue';
 
 import { AuthProvider } from './contexts/AuthContext';
 import { ProfileProvider } from './contexts/ProfileContext';
+import { ReloadProvider } from './contexts/ReloadContext';
 
 function App() {
   return (
@@ -67,17 +68,17 @@ function App() {
             <Route path='/profile/:profileId/details' element={
               <section id='profileDetails'>
                 <ProfileProvider>
-                  <ProfileDetails/>
+                  <ProfileDetails />
                 </ProfileProvider>
               </section>
-            }/>
+            } />
             <Route path='/profile/:profileId/edit' element={
               <section id='profileEdit'>
                 <ProfileProvider>
-                  <ProfileEdit/>
+                  <ProfileEdit />
                 </ProfileProvider>
               </section>
-            }/>
+            } />
             <Route path='/login' element={
               <section id='login'>
                 <Login />
@@ -90,7 +91,9 @@ function App() {
             } />
             <Route path='/mycatalogue' element={
               <section id='myCatalogue'>
-                <MyCatalogue />
+                <ReloadProvider>
+                  <MyCatalogue />
+                </ReloadProvider>
               </section>
             } />
           </Routes>
@@ -98,7 +101,7 @@ function App() {
         <Footer />
       </div>
     </AuthProvider>
-    
+
   );
 }
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 export const ArticleItem = ({
     catalogueTitle,
     catalogueId,
-    article
+    article,
 }) => {
     return (
         <div className="col-lg-4 col-md-6 mb-4">
