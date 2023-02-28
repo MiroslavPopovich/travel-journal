@@ -15,7 +15,7 @@ export const MyArticleItem = ({
                     <img className="img-fluid w-100" src={article.imageUrl ? `${article.imageUrl}` : "../../img/package-2.jpg"} alt="" />
                     <div className="team-social">
                         <Link className="btn btn-outline-primary btn-square" to={`/catalogue/myCatalogue/${article.category.objectId}/${article.objectId}`} state={{ article }}><i className="fa-solid fa-info"></i></Link>
-                        <a className="btn btn-outline-info btn-square" href="/.index.html"><i className="fa-regular fa-pen-to-square"></i></a>
+                        <Link className="btn btn-outline-info btn-square" to={`/articles/edit/${article.objectId}`} state={{ article }}><i className="fa-regular fa-pen-to-square"></i></Link>
                         <button className="btn btn-outline-danger btn-square" onClick={showHandler}><i className="fa-solid fa-trash"></i></button>                                
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import {  addOwner, addCategory, post, createPointerQuery, get, del} from "../services/restService";
+import {  addOwner, addCategory, post, createPointerQuery, get, del, put} from "../services/restService";
 
 
 const endPoints = {
@@ -7,16 +7,21 @@ const endPoints = {
     allArticlesByOwnerId: (ownerId) =>`/classes/Articles?where=${createPointerQuery('owner', '_User', ownerId)}&count=1`,
     allArticles: '/classes/Articles',
     deleteArticle: '/classes/Articles/',
+    editArticle: '/classes/Articles/',
 };
 
 export async function addArticle(articleData, ownerId, categoryId){// profileData item must be object
     addOwner(articleData, ownerId);
     addCategory(articleData, categoryId);
-    return post(endPoints.addArticle, articleData)// returns promise
+    return post(endPoints.addArticle, articleData);// returns promise
+};
+
+export async function editArticle(articleData, articleId){
+    return put(endPoints.editArticle + articleId, articleData);
 };
 
 export async function deleteArticle(articleId){
-    return del(endPoints.deleteArticle + articleId)
+    return del(endPoints.deleteArticle + articleId);
 };
 
 export async function getArticlesByCategory(categoryId) {
@@ -24,7 +29,7 @@ export async function getArticlesByCategory(categoryId) {
 };
 
 export async function getArticlesByOwner(ownerId){
-    return get(endPoints.allArticlesByOwnerId(ownerId))
+    return get(endPoints.allArticlesByOwnerId(ownerId));
 };
 
 export async function getAllArticles(){

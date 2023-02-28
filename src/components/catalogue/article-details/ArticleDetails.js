@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { GoBackBtn } from "../../common/GoBackBtn";
 import { ConfirmationPopUp } from "../../common/ConfirmationPopUp";
@@ -52,7 +52,7 @@ export const ArticleDetails = () => {
                             (auth.id === article.owner.objectId)
                                 ?
                                 <>
-                                    <a href="/index.html" className="btn btn-info mt-1 mr-2" style={{ float: "right" }}>Edit</a>
+                                    <Link to={`/articles/edit/${article.objectId}`} className="btn btn-info mt-1 mr-2" style={{ float: "right" }} state={{ article }}>Edit</Link>
                                     <button className="btn btn-danger mt-1 mr-2" onClick={showHandler} style={{ float: "right" }}>Delete</button>
                                 </>
                                 : null

@@ -27,7 +27,7 @@ export const ProfileEdit = () => {
             [e.target.name]: e.target.value,
         }));
     };
-
+    
     const ProfileEditHandler = (e) => {
 
         e.preventDefault();

@@ -9,6 +9,7 @@ import { Categories } from './components/categories/Categories';
 import { Catalogue } from './components/catalogue/Catalogue';
 import { ArticleDetails } from './components/catalogue/article-details/ArticleDetails';
 import { ArticleCreate } from './components/catalogue/article-create/ArticleCreate';
+import { ArticleEdit } from './components/catalogue/article-edit/ArticleEdit';
 import { Register } from './components/common/Register';
 import { Login } from './components/common/Login';
 import { ProfileCreate } from './components/common/profile/ProfileCreate';
@@ -58,6 +59,11 @@ function App() {
             <Route path='/article/create' element={
               <section id='articleCreate'>
                 <ArticleCreate />
+              </section>
+            } />
+            <Route path='/articles/edit/:articleId' element={
+              <section id='articleEdit'>
+                <ArticleEdit/>
               </section>
             } />
             <Route path='/profile/create' element={
